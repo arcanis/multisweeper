@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="app">
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Minesweeper</title>
+
+        <link rel="stylesheet" type="text/css" href="vendors/FontAwesome/css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="styles/general.css" />
+        <link rel="stylesheet" type="text/css" href="styles/application.css" />
+
+        <script>document.write( '<' + 'script src="/socket.io/socket.io.js"><' + '/script>' );</script>
+
+        <script src="vendors/Angular.js"></script>
+        <script src="scripts/application.js"></script>
+
+        <script src="scripts/Board.js"></script>
+        <script src="scripts/Log.js"></script>
+
+    </head>
+    <body>
+
+        <div ng-controller="Board" class="board"
+
+             style="
+
+                width: {{ width * size }}px;
+                height: {{ width * size }}px;" >
+
+            <div ng-repeat="cell in cells" ng-click="click( $event, [ cell.x, cell.y ] )" ng-contextmenu="rightClick( $event, [ cell.x, cell.y ] )" data-cell-value="{{ cell.value }}" class="cell"
+
+                 style="
+
+                    left : {{ cell.x * size }}px;
+                    top  : {{ cell.y * size }}px;
+
+                    width       : {{ size }}px;
+                    height      : {{ size }}px;
+                    line-height : {{ size }}px;"
+
+                 ng-class="{
+
+                    'cell--first-col' : cell.x == 0,
+                    'cell--last-col'  : cell.x + 1 == width,
+
+                    'cell--first-row' : cell.y == 0,
+                    'cell--last-row'  : cell.y + 1 == height }" >
+
+                <span ng-show="cell.value === -1 || cell.value === -2" class="icon-flag"></span>
+                <span ng-show="cell.value === -3 || cell.value === -4" class="icon-certificate"></span>
+                <span ng-show="cell.value > 0">{{ cell.value }}</span>
+
+            </div>
+        </div>
+
+        <div ng-controller="Log" class="log">
+            <div ng-repeat="item in items">
+                {{ item }}
+            </div>
+        </div>
+
+    </body>
+</html>

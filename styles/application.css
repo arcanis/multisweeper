@@ -1,0 +1,58 @@
+.board {
+    position: relative;
+
+    box-sizing: content-box;
+
+    border: 1px solid black;
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.cell {
+    display: block;
+    position: absolute;
+
+    text-align: center;
+    font-family: arial;
+    font-weight: bold;
+
+    box-shadow: inset -1px -1px 1px 1px grey;
+    background: lightgrey;
+}
+
+.cell--last-col {
+    border-right: none;
+}
+
+.cell--last-row {
+    border-bottom: none;
+}
+
+.cell[data-cell-value="0"],
+.cell[data-cell-value="1"],
+.cell[data-cell-value="2"],
+.cell[data-cell-value="3"],
+.cell[data-cell-value="4"],
+.cell[data-cell-value="5"],
+.cell[data-cell-value="6"],
+.cell[data-cell-value="7"],
+.cell[data-cell-value="8"],
+.cell[data-cell-value="-3"] {
+    box-shadow: inset 1px 1px 1px 1px grey;
+    background: #e3e3e3;
+}
+
+.cell[data-cell-value="1"] { color: #0809c6; }
+.cell[data-cell-value="2"] { color: #1e661d; }
+.cell[data-cell-value="3"] { color: #e80a09; }
+.cell[data-cell-value="4"] { color: #07064a; }
+.cell[data-cell-value="5"] { color: #650a09; }
+.cell[data-cell-value="6"] { color: #187072; }
+.cell[data-cell-value="7"] { color: #000000; }
+.cell[data-cell-value="8"] { color: #7b7b7b; }
+
+.cell[data-cell-value="-1"] { color: red; }
+.cell[data-cell-value="-2"] { color: blue; }
+.cell[data-cell-value="-3"] { color: grey; }
+.cell[data-cell-value="-4"] { color: gold; background: red; }
