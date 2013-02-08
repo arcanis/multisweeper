@@ -8,7 +8,7 @@ var Express = require( 'express' ),
     socketio = SocketIo.listen( http );
 
 express.use( Express[ 'static' ]( __dirname ) );
-http.listen( 6565 );
+http.listen( 80 );
 
 var width = 20,
     height = 20,
