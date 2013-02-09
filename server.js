@@ -44,6 +44,10 @@ var createBoard = function ( width, height, minep ) {
         for ( var x = 0; x < width; ++ x ) {
             if ( cells[[ x, y ]] !== MINE ) {
                 cells[[ x, y ]] = 0
+                    + ( cells[[ x - 1, y - 1 ]] === MINE )
+                    + ( cells[[ x + 1, y - 1 ]] === MINE )
+                    + ( cells[[ x - 1, y + 1 ]] === MINE )
+                    + ( cells[[ x + 1, y + 1 ]] === MINE )
                     + ( cells[[ x - 1, y ]] === MINE )
                     + ( cells[[ x + 1, y ]] === MINE )
                     + ( cells[[ x, y - 1 ]] === MINE )
