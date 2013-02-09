@@ -23,7 +23,11 @@ var Board = [ '$scope', 'socket', function ( $scope, socket ) {
     } );
 
     $scope.click = function ( $event, coord ) {
-        socket.emit( 'click', coord );
+        if ($event.button === 3) {
+            socket.emit( 'flag', coord );
+        } else {
+            socket.emit( 'click', coord );
+        }
     };
 
     $scope.rightClick = function ( $event, coord ) {

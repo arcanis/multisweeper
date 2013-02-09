@@ -12,7 +12,7 @@ http.listen( process.env.PORT || 3000 );
 
 var width = 20,
     height = 20,
-    minep = 10 / 100;
+    minep = 40 / 100;
 
 var FLAG_P1   = - 1;
 var FLAG_P2   = - 2;
